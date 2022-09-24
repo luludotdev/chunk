@@ -20,6 +20,10 @@ export function chunk<T, N extends number>(
   array: T[],
   size: N,
 ): { chunks: Tuple<T, N>[]; rest: T[] } {
+  if (size < 1) {
+    throw new Error('`size` must be greater than 0')
+  }
+
   // Optimized paths
   if (array.length === 0) return { chunks: [], rest: [] }
   if (array.length === size) {
@@ -47,6 +51,10 @@ export function chunkStrict<T, N extends number>(
   array: T[],
   size: N,
 ): Tuple<T, N>[] {
+  if (size < 1) {
+    throw new Error('`size` must be greater than 0')
+  }
+
   // Optimized paths
   if (array.length === 0) return []
   if (array.length === size) return array as Tuple<T, N>[]
