@@ -3,4 +3,5 @@
 .yarnrc.yml
 
 # Generated
+coverage/
 dist/
