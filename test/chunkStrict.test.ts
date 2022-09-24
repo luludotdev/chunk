@@ -80,3 +80,11 @@ test('throws if `size` is less than 1', () => {
   expect(() => chunkStrict(test, -1)).toThrow('greater than')
   expect(() => chunkStrict(test, 0)).toThrow('greater than')
 })
+
+test('throws if array length is not a multiple of `size`', () => {
+  const test10 = createArray(10)
+  expect(() => chunkStrict(test10, 3)).toThrow('multiple')
+
+  const test17 = createArray(17)
+  expect(() => chunkStrict(test17, 2)).toThrow('multiple')
+})
