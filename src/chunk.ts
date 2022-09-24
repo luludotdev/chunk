@@ -27,6 +27,11 @@ export function chunk<T, N extends number>(
   }
 
   const remaining = array.length % size
+  if (remaining === 0) {
+    const chunks = chunkStrict(array, size)
+    return { chunks, rest: [] }
+  }
+
   const chunks = chunkStrict(array.slice(0, -remaining), size)
   const rest = array.slice(-remaining)
 
