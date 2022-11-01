@@ -1,7 +1,7 @@
 {
   "name": "@lolpants/chunk",
   "version": "0.1.0",
-  "packageManager": "yarn@3.2.3",
+  "packageManager": "yarn@3.2.4",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
