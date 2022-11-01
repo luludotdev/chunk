@@ -3,9 +3,11 @@ import { chunk } from '../src/chunk.js'
 import { createArray } from './array.js'
 
 test('chunks an array correctly', () => {
-  const test = createArray(10)
+  const test10 = createArray(10)
+  const test5 = createArray(5)
+  const test3 = createArray(3)
 
-  expect(chunk(test, 5)).toEqual({
+  expect(chunk(test10, 5)).toEqual({
     chunks: [
       [1, 2, 3, 4, 5],
       [6, 7, 8, 9, 10],
@@ -13,7 +15,7 @@ test('chunks an array correctly', () => {
     rest: [],
   })
 
-  expect(chunk(test, 4)).toEqual({
+  expect(chunk(test10, 4)).toEqual({
     chunks: [
       [1, 2, 3, 4],
       [5, 6, 7, 8],
@@ -21,7 +23,12 @@ test('chunks an array correctly', () => {
     rest: [9, 10],
   })
 
-  expect(chunk(test, 3)).toEqual({
+  expect(chunk(test5, 4)).toEqual({
+    chunks: [[1, 2, 3, 4]],
+    rest: [5],
+  })
+
+  expect(chunk(test10, 3)).toEqual({
     chunks: [
       [1, 2, 3],
       [4, 5, 6],
@@ -30,7 +37,7 @@ test('chunks an array correctly', () => {
     rest: [10],
   })
 
-  expect(chunk(test, 2)).toEqual({
+  expect(chunk(test10, 2)).toEqual({
     chunks: [
       [1, 2],
       [3, 4],
@@ -41,7 +48,12 @@ test('chunks an array correctly', () => {
     rest: [],
   })
 
-  expect(chunk(test, 1)).toEqual({
+  expect(chunk(test3, 2)).toEqual({
+    chunks: [[1, 2]],
+    rest: [3],
+  })
+
+  expect(chunk(test10, 1)).toEqual({
     chunks: [[1], [2], [3], [4], [5], [6], [7], [8], [9], [10]],
     rest: [],
   })
