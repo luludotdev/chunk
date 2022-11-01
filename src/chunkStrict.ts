@@ -17,7 +17,7 @@ export function chunkStrict<T, N extends number>(
 
   // Optimized paths
   if (array.length === 0) return []
-  if (array.length === size) return array as Tuple<T, N>[]
+  if (array.length === size) return [array] as Tuple<T, N>[]
 
   if (array.length % size !== 0) {
     throw new Error('`array` must be a multiple of `size`')
