@@ -3,29 +3,29 @@ import { chunkStrict } from '../src/chunkStrict.js'
 import { createArray } from './array.js'
 
 test('chunks an array correctly', () => {
-  const test = createArray(12)
+  const test12 = createArray(12)
 
-  expect(chunkStrict(test, 12)).toEqual([test])
+  expect(chunkStrict(test12, 12)).toEqual([test12])
 
-  expect(chunkStrict(test, 6)).toEqual([
+  expect(chunkStrict(test12, 6)).toEqual([
     [1, 2, 3, 4, 5, 6],
     [7, 8, 9, 10, 11, 12],
   ])
 
-  expect(chunkStrict(test, 4)).toEqual([
+  expect(chunkStrict(test12, 4)).toEqual([
     [1, 2, 3, 4],
     [5, 6, 7, 8],
     [9, 10, 11, 12],
   ])
 
-  expect(chunkStrict(test, 3)).toEqual([
+  expect(chunkStrict(test12, 3)).toEqual([
     [1, 2, 3],
     [4, 5, 6],
     [7, 8, 9],
     [10, 11, 12],
   ])
 
-  expect(chunkStrict(test, 2)).toEqual([
+  expect(chunkStrict(test12, 2)).toEqual([
     [1, 2],
     [3, 4],
     [5, 6],
@@ -34,7 +34,7 @@ test('chunks an array correctly', () => {
     [11, 12],
   ])
 
-  expect(chunkStrict(test, 1)).toEqual([
+  expect(chunkStrict(test12, 1)).toEqual([
     [1],
     [2],
     [3],

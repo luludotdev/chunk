@@ -21,7 +21,7 @@ export function chunk<T, N extends number>(
   if (array.length === 0) return { chunks: [], rest: [] }
   if (array.length === size) {
     return {
-      chunks: array as Tuple<T, N>[],
+      chunks: [array] as Tuple<T, N>[],
       rest: [],
     }
   }

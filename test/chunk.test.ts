@@ -72,16 +72,16 @@ test('handles zero length arrays', () => {
 
 test('handles single chunk arrays', () => {
   const test2 = createArray(2)
-  expect(chunk(test2, 2)).toEqual({ chunks: test2, rest: [] })
+  expect(chunk(test2, 2)).toEqual({ chunks: [test2], rest: [] })
 
   const test3 = createArray(3)
-  expect(chunk(test3, 3)).toEqual({ chunks: test3, rest: [] })
+  expect(chunk(test3, 3)).toEqual({ chunks: [test3], rest: [] })
 
   const test4 = createArray(4)
-  expect(chunk(test4, 4)).toEqual({ chunks: test4, rest: [] })
+  expect(chunk(test4, 4)).toEqual({ chunks: [test4], rest: [] })
 
   const test6 = createArray(6)
-  expect(chunk(test6, 6)).toEqual({ chunks: test6, rest: [] })
+  expect(chunk(test6, 6)).toEqual({ chunks: [test6], rest: [] })
 })
 
 test('throws if `size` is less than 1', () => {
